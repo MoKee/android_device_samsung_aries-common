@@ -109,8 +109,8 @@ if /tmp/busybox test -e /dev/block/bml7 ; then
     # make sure sdcard is mounted
     check_mount /mnt/sdcard $SD_PART vfat
 
-    # everything is logged into /mnt/sdcard/cyanogenmod_bml.log
-    set_log /mnt/sdcard/cyanogenmod_bml.log
+    # everything is logged into /mnt/sdcard/mokee_bml.log
+    set_log /mnt/sdcard/mokee_bml.log
 
     if $IS_GSM ; then
         # make sure efs is mounted
@@ -151,8 +151,8 @@ elif /tmp/busybox test `/tmp/busybox cat /sys/class/mtd/mtd2/size` != "$MTD_SIZE
     # make sure sdcard is mounted
     check_mount /sdcard $SD_PART vfat
 
-    # everything is logged into /sdcard/cyanogenmod_mtd_old.log
-    set_log /sdcard/cyanogenmod_mtd_old.log
+    # everything is logged into /sdcard/mokee_mtd_old.log
+    set_log /sdcard/mokee_mtd_old.log
 
     warn_repartition
 
@@ -188,7 +188,7 @@ elif /tmp/busybox test -e /dev/block/mtdblock0 ; then
     check_mount /sdcard $SD_PART vfat
 
     # everything is logged into /sdcard/cyanogenmod.log
-    set_log /sdcard/cyanogenmod_mtd.log
+    set_log /sdcard/mokee_mtd.log
 
     # unmount system and data (recovery seems to expect system to be unmounted)
     /tmp/busybox umount -l /system
