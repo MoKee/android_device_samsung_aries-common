@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Copyright (C) 2014 The MoKee OpenSource Project
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+
+echo "package_extract_file(\"mtd_updater.sh\", \"/tmp/mtd_updater.sh\");" >> updater-script
+echo "set_perm(0, 0, 0777, \"/tmp/mtd_updater.sh\");" >> updater-script
+echo "package_extract_file(\"flash_image\", \"/tmp/flash_image\");" >> updater-script
+echo "set_perm(0, 0, 0777, \"/tmp/flash_image\");" >> updater-script
+echo "package_extract_file(\"bml_over_mtd\", \"/tmp/bml_over_mtd\");" >> updater-script
+echo "set_perm(0, 0, 0777, \"/tmp/bml_over_mtd\");" >> updater-script
+echo "package_extract_file(\"bml_over_mtd.sh\", \"/tmp/bml_over_mtd.sh\");" >> updater-script
+echo "set_perm(0, 0, 0777, \"/tmp/bml_over_mtd.sh\");" >> updater-script
+echo "assert(run_program(\"/tmp/mtd_updater.sh\") == 0);" >> updater-script
+cp $ANDROID_BUILD_TOP/device/samsung/aries-common/mtd_updater.sh out
